@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50">
+
+        <LinearLayout
+            android:id="@+id/ll_return"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:src="@drawable/return_icon" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/input_output_status"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="@dimen/dp_12"
+        android:layout_marginRight="@dimen/dp_12"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30">
+        <TextView
+            android:id="@+id/tv_input_state"
+            android:gravity="center"
+            android:background="@color/c3363FC"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/white"
+            android:text="@string/input_state"/>
+        <TextView
+            android:id="@+id/tv_output_state"
+            android:gravity="center"
+            android:background="@color/c606060"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/c444444"
+            android:text="@string/output_state"/>
+    </LinearLayout>
+    <GridView
+        android:id="@+id/gridView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="6"/>
+    <GridView
+        android:id="@+id/gridView2"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="6"/>
+</LinearLayout>

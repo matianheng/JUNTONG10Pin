@@ -1,0 +1,6 @@
+<!-- res/drawable/circle_red.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/c3363FC" /> <!-- 设置圆形的填充颜色 -->
+    <corners android:radius="50dp" /> <!-- 设定圆角半径，使形状成为圆形 -->
+    <size android:width="80dp" android:height="80dp" /> <!-- 控制形状的大小 -->
+</shape>

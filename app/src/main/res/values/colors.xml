@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="cAFECEE">#AFECEE</color>
+    <color name="cD2D6DE">#D2D6DE</color>
+    <color name="c0EB2FE">#0EB2FE</color>
+    <color name="c444444">#444444</color>
+    <color name="c888888">#888888</color>
+    <color name="c606060">#606060</color>
+    <color name="c3363FC">#3363FC</color>
+    <color name="cus_m_blue">#2196f3</color>
+    <color name="red">#ff0000</color>
+    <color name="c00000F">#00000F</color>
+    <color name="c15606060">#15606060</color>
+    <color name="c6699CC">#6699CC</color>
+    <color name="c6EA6B3">#6EA6B3</color>
+    <color name="c4EB20E">#4EB20E</color>
+    <color name="cED1111">#ED1111</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="downloadDialog_title_color">#2196f3</color>
+    <color name="ccdcdcd">#cdcdcd</color>
+</resources>

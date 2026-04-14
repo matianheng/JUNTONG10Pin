@@ -1,0 +1,151 @@
+plugins {
+    id 'com.android.application'
+}
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'com.hndl.ui'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.hndl.ui"
+        minSdk 28
+        targetSdk 33
+        versionCode 37
+        versionName "1.1.67"
+        ndk {
+            abiFilters "arm64-v8a"
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
+    }
+
+    signingConfigs {
+        config {
+            storeFile file('platform.jks')
+            storePassword '123456'
+            keyAlias 'quectel'
+            keyPassword '123456'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebuggable true
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            signingConfig signingConfigs.config
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*******'
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = rootProject.getName() + '_v' + variant.versionName + '_' + variant.versionCode + '_' + variant.buildType.name
+            if (variant.buildType.name == buildTypes.release.getName()) {
+                outputFileName += '_' + new Date().format('MMdd')
+            }
+            outputFileName += '.apk'
+        }
+    }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+dependencies {
+    implementation fileTree('libs')
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0'
+    compileOnly files('libs/framework_androidgo.jar')
+    implementation 'androidx.multidex:multidex:2.0.1'
+    //沉浸式标题栏
+    implementation 'com.geyifeng.immersionbar:immersionbar:3.2.2'
+    //工具类
+    implementation 'com.blankj:utilcodex:1.31.0'
+    //can通讯解析
+    implementation project(":SerialPort")
+    //mmkv存储
+    implementation 'com.tencent:mmkv:1.3.0'
+    //自定义键盘
+    implementation project(":lib_safekeyboard")
+    //U盘
+    implementation 'com.github.mjdev:libaums:+'
+    //加载动画
+    implementation 'com.wang.avi:library:2.1.3'
+    //wifi管理
+    implementation  'com.iwdael:wifimanager:1.5.1'
+    //刷新
+    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
+    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
+    //sqlite数据库转Excel
+    implementation 'com.liyu.tools:sqlitetoexcel:1.0.10'
+    //NanoHTTPD 搭建简单HTTP服务器
+    implementation 'org.nanohttpd:nanohttpd:2.3.1'
+    //二维码生成与扫描
+    implementation 'com.king.zxing:zxing-lite:1.1.7-androidx'
+    //在线升级SDK
+    implementation("com.hndl.core:update:3.0.2")
+}
+
+//preBuild {
+//    doLast {
+////        def imlFile = file(project.name + ".iml")
+//        // 这是我的工程路径，具体的根据自己的工程来修改
+//        def imlFile = file("../.idea/modules/app/AndroidStudioProjects.BluetoothDemo.app.iml")
+//        println('Change ' + project.name + '.iml order')
+//        try {
+//            def parsedXml = (new XmlParser()).parse(imlFile)
+//            def jdkNode = parsedXml.component[1].orderEntry.find { it.'@type' == 'jdk' }
+//            parsedXml.component[1].remove(jdkNode)
+//            def sdkString = "Android API " + android.compileSdkVersion.substring("android-".length()) + " Platform"
+//            new groovy.util.Node(parsedXml.component[1], 'orderEntry', ['type': 'jdk', 'jdkName': sdkString, 'jdkType': 'Android SDK'])
+//            groovy.xml.XmlUtil.serialize(parsedXml, new FileOutputStream(imlFile))
+//        } catch (FileNotFoundException e) {
+//            // nop, iml not found
+//            println('iml not found')
+//        }
+//    }
+//}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        Set<File> fileSet = options.bootstrapClasspath.getFiles()
+        List<File> newFileList =  new ArrayList<>();
+        //"../framework.jar" 为相对位置，需要参照着修改，或者用绝对位置
+        newFileList.add(new File("libs\\framework_androidgo.jar"))
+        newFileList.addAll(fileSet)
+        options.bootstrapClasspath = files(newFileList.toArray())
+    }
+}

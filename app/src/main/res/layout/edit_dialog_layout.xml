@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/c444444"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:padding="@dimen/dp_8"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:gravity="top"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:hint="@string/please_enter_the_password"
+            android:textColorHint="@color/cD2D6DE"
+            android:padding="5dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:inputType="number"
+            android:clickable="false"
+            android:enabled="false"
+            android:focusable="false"
+            android:textSize="16sp" />
+        <View
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/c888888"/>
+    </LinearLayout>
+
+    <com.hndl.ui.widget.NumKeyboard
+        android:id="@+id/numKeyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

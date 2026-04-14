@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MaxHeightView">
+        <attr name="mhv_HeightRatio" format="reference|float" />
+        <attr name="mhv_HeightDimen" format="reference|dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="stretchtextview">
+        <attr name="layoutalign">
+            <enum name="ALIGN_NORMAL" value="0" />
+            <enum name="ALIGN_OPPOSITE" value="1" />
+            <enum name="ALIGN_CENTER" value="2" />
+        </attr>
+        <attr name="mSpacingMult" format="integer" />
+        <attr name="mSpacingAdd" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="PercentRelativelayout">
+        <attr name="layout_widthPercent" format="float"></attr>
+        <attr name="layout_heightPercent" format="float"></attr>
+    </declare-styleable>
+</resources>

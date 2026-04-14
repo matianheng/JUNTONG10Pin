@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50">
+
+        <LinearLayout
+            android:id="@+id/ll_return"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:src="@drawable/return_icon" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/model_selection"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20" />
+        <TextView
+            android:id="@+id/btn_confirm"
+            android:layout_width="@dimen/dp_80"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center"
+            android:layout_height="@dimen/dp_30"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_bg_circle"
+            android:textSize="@dimen/sp_16"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_margin="@dimen/dp_10"
+            android:padding="10dp"
+            android:background="@drawable/dialog_circle"
+            android:layout_width="0dp"
+            android:layout_weight="1.2"
+            android:layout_height="wrap_content"
+            android:dividerHeight="@dimen/dp_1"
+            android:divider="@color/c888888"/>
+        <ListView
+            android:id="@+id/listView2"
+            android:layout_margin="@dimen/dp_10"
+            android:padding="10dp"
+            android:background="@drawable/dialog_circle"
+            android:layout_width="0dp"
+            android:layout_weight="1.2"
+            android:layout_height="wrap_content"
+            android:dividerHeight="@dimen/dp_1"
+            android:divider="@color/c888888"/>
+    </LinearLayout>
+</LinearLayout>
